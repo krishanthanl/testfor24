@@ -16,3 +16,8 @@ export interface Product {
     urlPath: string;
     redirectUrl: string;
 }
+
+export interface FetchResponse<T> {
+    count: number;
+    results: T[];
+}

@@ -15,7 +15,10 @@ interface Props {
 const ProductList = ({ productQuery }: Props) => {
     const {data, isLoading} = useProductData<Product>();
     const structures = [1, 2, 3, 4, 5, 6];
-
+    //console.log("-----------------------");
+    //console.log(data);
+    //data.map((product, index) => (console.log(`productListCardContainer${product.name}${index}`)));
+    //console.log("-----------------------");
     return (
         <SimpleGrid
             columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
@@ -28,8 +31,8 @@ const ProductList = ({ productQuery }: Props) => {
                 </ProductCardContainer>
             ))}
             {data.map((product, index) => (
-                <ProductCardContainer key={index}>
-                    <ProductCard product={product} data-testid={`prodCategoryHeader${product.name}{index}`} />
+                <ProductCardContainer key={index} data-testid={`productListCardContainer${product.name}${index}`}>
+                    <ProductCard product={product} data-testid={`productListCard${product.name}${index}`} />
                 </ProductCardContainer>
             ))}
         </SimpleGrid>

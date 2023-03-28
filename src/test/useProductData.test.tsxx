@@ -1,0 +1,51 @@
+// Testing custome hooks bit difficult with react version 18.X.X
+// keep this as TODO
+
+
+import axios from "axios";
+import { renderHook, act } from '@testing-library/react';
+
+import {Product,FetchResponse} from '../utils/interfaces';
+import useProductData from '../hooks/useProductData';
+import ProductClient from '../services/productClient';
+
+const products: Product[] = [
+    {
+        image: "https://cdn1.home24.net/resized/",
+        shortName: "",
+        name: "Ecksofas",
+        urlPath: "eckcouches/",
+        redirectUrl: "",
+        articleCount: 9631
+    },
+    {
+        image: "https://cdn1.home24.net/resized/2",
+        shortName: "",
+        name: "Einzelsofas",
+        urlPath: "einzelsofas/",
+        redirectUrl: "",
+        articleCount: 963
+    }
+];
+
+const response: FetchResponse<Product> = {
+    count: 2,
+    results: products
+};
+
+jest.mock('axios', () => ({
+    post: jest.fn(),
+    get: jest.fn(),
+    create: jest.fn(),
+}));
+const mockedAxios = axios as jest.Mocked<typeof axios>;
+mockedAxios.get.mockResolvedValueOnce(response);
+
+jest.mock('../services/productClient', () =>({
+    get: jest.fn(),
+}));
+const mockedproductClient = ProductClient as jest.Mocked<typeof ProductClient>;
+mockedproductClient.get.mockResolvedValueOnce(response);
+
+
+

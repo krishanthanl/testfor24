@@ -23,8 +23,8 @@ const ProductCard = ({product}: Props) => {
     return(
         <Card>
             <CardBody>
-                <Image src={product.image} boxSize='250px' objectFit='cover' borderRadius='full' aria-label={product.name} />
-                <Heading fontSize='2xl' aria-label={product.name}>{product.name}</Heading>
+                <Image data-testid={`img${product.name}`} src={product.image} boxSize='250px' objectFit='cover' borderRadius='full' aria-label={product.name} />
+                <Heading data-testid={`header${product.name}`} fontSize='2xl' aria-label={product.name}>{product.name}</Heading>
                 <HStack justifyContent='space-between' marginBottom={3}>
                     <MaterialIconList materials={materialList} />
                 </HStack>

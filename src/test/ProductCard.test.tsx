@@ -24,7 +24,5 @@ test('render ProductCard', () => {
     expect(productCardImage).toBeInTheDocument();
     expect(productCardHeader).toBeInTheDocument();
     
-    console.log((productCardHeader as HTMLHeadingElement).ariaLabel);
-
     expect((productCardImage as HTMLImageElement).src).toContain("https://cdn1.home24.net/resized/");
 });

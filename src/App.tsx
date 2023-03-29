@@ -9,7 +9,7 @@ import TopNavigationBar from "./components/TopNavigationBar";
 import ProductCategoryMenu from "./components/ProductCategoryMenu";
 import SelectedCategoryHeader from './components/SelectedCategoryHeader';
 import ProductList from "./components/ProductList";
-import {ProductQuery} from "./utils/interfaces";
+import {ProductQuery, Search} from "./utils/interfaces";
 
 function App() {
 
@@ -18,7 +18,9 @@ function App() {
   if(productQuery.selectedCategory === null || productQuery.selectedCategory === undefined){
     productQuery.selectedCategory = "Ecksofas";
   }
-  
+  const search: Search = {
+    onSearch: (searchText) => setProductQuery({ ...productQuery, searchText })
+  }
 
   return (
     <Grid 
@@ -32,7 +34,7 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <TopNavigationBar onSearch={(searchText) => setProductQuery({ ...productQuery, searchText })}  />
+        <TopNavigationBar search={search}  />
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>

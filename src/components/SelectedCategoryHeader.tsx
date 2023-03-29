@@ -13,7 +13,7 @@ const SelectedCategoryHeader = ({ productQuery }: Props) => {
     const header = `${productQuery.selectedCategory || ''}`;
   
     return (
-      <Heading as='h1' marginY={5} fontSize='5xl'>{header}</Heading>
+      <Heading as='h1' data-testid={`categoryHeader`} marginY={5} fontSize='5xl'>{header}</Heading>
     )
 }
   

@@ -5,11 +5,6 @@ import { useEffect, useState } from "react";
 import productClient from "../services/productClient";
 import {FetchResponse} from "../utils/interfaces";
 
-// interface FetchResponse<T> {
-//     count: number;
-//     results: T[];
-// }
-
 const useProductData = <T>() => {
     const [data, setData] = useState<T[]>([]);
     const [error, setError] = useState("");

@@ -4,18 +4,19 @@ import { HStack, Image } from '@chakra-ui/react'
 //Project Modules
 import logo from '../assets/home24.png';
 import SearchInput from './SearchInput';
+import {Search} from '../utils/interfaces';
 
 interface Props {
-    onSearch: (searchText: string) => void;
+  search: Search;
 };
 
-const NavBar = ({ onSearch }: Props) => {
+const TopNavigationBar = ({ search }: Props) => {
     return (
       <HStack padding='10px'>
-        <Image src={logo} boxSize='60px' alt='home 24 Logo' />
-        <SearchInput onSearch={onSearch} />
+        <Image data-testid={`imgLogo`} src={logo} boxSize='60px' alt='home 24 Logo' />
+        <SearchInput search={search} />
       </HStack>
     )
 };
 
-export default NavBar;
+export default TopNavigationBar;

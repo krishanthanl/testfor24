@@ -15,10 +15,6 @@ interface Props {
 const ProductList = ({ productQuery }: Props) => {
     const {data, isLoading} = useProductData<Product>();
     const structures = [1, 2, 3, 4, 5, 6];
-    //console.log("-----------------------");
-    //console.log(data);
-    //data.map((product, index) => (console.log(`productListCardContainer${product.name}${index}`)));
-    //console.log("-----------------------");
     return (
         <SimpleGrid
             columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
